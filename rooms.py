@@ -51,8 +51,6 @@ def go_get_room():
 
     sleep(0.8)
     
-    
-    
     try:
         room2 = driver.find_element_by_xpath('//div[@class="event-time"]/p[text()="' + backupTime + '"]/../../div[@class="event-body"]/p[@class="event-name"]/span/a[text()="' + backupRoom + ' (Practice Room)"]')
     except NoSuchElementException:
@@ -66,28 +64,22 @@ def go_get_room():
     
     sleep(0.8)
 
-
-
     try:
         room3 = driver.find_element_by_xpath('//div[@class="event-time"]/p[text()="' + backupTime2 + '"]/../../div[@class="event-body"]/p[@class="event-name"]/span/a[text()="' + backupRoom2 + ' (Practice Room)"]')
     except NoSuchElementException:
         print("Couldn't get 3rd room")
       
-    
     #go to THIRD room and book it
     driver.execute_script("return arguments[0].scrollIntoView();", room3)
 
     action3 = ActionChains(driver)
     action3.move_to_element_with_offset(room3, 0, 47).double_click().perform()
 
-
     #exit after some time has passed
     sleep(20)
     driver.quit()
     exit()
     
-    
-
 def schedule_booking():
     schedule.every().day.at("23:59").do(look_for_room)
     schedule.every().day.at("00:00").do(go_get_room)
