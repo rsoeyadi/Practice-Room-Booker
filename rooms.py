@@ -15,7 +15,7 @@ driver = webdriver.Chrome(options=chrome_options)
 def main():
     schedule_booking()
 
-def look_for_room():
+def get_ready():
 
     driver.get("https://juilliard.asimut.net/public/")
 
@@ -81,7 +81,7 @@ def go_get_room():
     exit()
     
 def schedule_booking():
-    schedule.every().day.at("23:59").do(look_for_room)
+    schedule.every().day.at("23:59").do(get_ready)
     schedule.every().day.at("00:00").do(go_get_room)
 
     while True:
