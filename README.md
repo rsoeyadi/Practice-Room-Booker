@@ -4,7 +4,7 @@ This script automates the process of opening up the practice room portal (ASIMUT
 
 All you need to do is save this script to your computer and:
 
-1. Enter your credentials in **lines 23 and 24**
+1. Enter your credentials in **lines 23 and 24** of **rooms.py**
 
 2. Open up **roomsInput.py**
 
